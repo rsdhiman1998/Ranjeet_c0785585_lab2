@@ -1,0 +1,99 @@
+<html>
+<div id="form">
+	<font size="8" color="green">Final test lab</font><br><br>
+	Number of rows: <input type="text" id="t1" /><br><br>
+	Number of cols: <input type="text" id="t2" /><br><br>
+	<button id="b1" onclick="generateTable()">Generate Table</button><br><br>
+</div>
+
+
+
+<button id="b2" onclick="addColumn()">Add Column</button>
+
+<button id="b3" onclick="addRow()">Add Row</button>
+
+<div id="table">
+
+</div>
+
+<script language="javascript">
+
+	function generateTable() {
+		document.getElementById("form").hidden = true;
+		var rows = document.getElementById("t1").value;
+		totalrows = rows;
+		var columns = document.getElementById("t2").value;
+		totalcols = columns;
+		var table = document.createElement("table");
+
+		for (var i = 0; i <= rows - 1; i++) {
+			var row = document.createElement("tr");
+			row.style.border = "1px solid";
+			for (var j = 0; j <= columns - 1; j++) {
+				var column = document.createElement("td");
+				column.style.border = "1px solid";
+				column.style.padding = "10px";
+				column.appendChild(document.createTextNode("row[" + i + "] col[" + j + "]"));
+				row.appendChild(column);
+			}
+			table.appendChild(row);
+		}
+		document.getElementById("table").appendChild(table);
+
+	}
+
+	var totalrows = 0;
+	var totalcols = 0;
+
+	function addColumn() {
+		totalcols = parseInt(totalcols) + 1;
+		var rows = totalrows;
+
+		var columns = totalcols;
+
+		var table = document.createElement("table");
+
+		for (var i = 0; i <= rows - 1; i++) {
+			var row = document.createElement("tr");
+			row.style.border = "1px solid";
+			for (var j = 0; j <= columns - 1; j++) {
+				var column = document.createElement("td");
+				column.style.border = "1px solid";
+				column.style.padding = "10px";
+				column.appendChild(document.createTextNode("row[" + i + "] col[" + j + "]"));
+				row.appendChild(column);
+			}
+			table.appendChild(row);
+		}
+		document.getElementById("table").innerHTML = "";
+		document.getElementById("table").appendChild(table);
+	}
+
+
+	function addRow() {
+		totalrows = parseInt(totalrows) + 1;
+		var rows = totalrows;
+
+		var columns = totalcols;
+		console.log("rows:" + rows + " cols:" + columns);
+
+		var table = document.createElement("table");
+
+		for (var i = 0; i <= rows - 1; i++) {
+			var row = document.createElement("tr");
+			row.style.border = "1px solid";
+			for (var j = 0; j <= columns - 1; j++) {
+				var column = document.createElement("td");
+				column.style.border = "1px solid";
+				column.style.padding = "10px";
+				column.appendChild(document.createTextNode("row[" + i + "] col[" + j + "]"));
+				row.appendChild(column);
+			}
+			table.appendChild(row);
+		}
+		document.getElementById("table").innerHTML = "";
+		document.getElementById("table").appendChild(table);
+	}
+</script>
+
+</html>
