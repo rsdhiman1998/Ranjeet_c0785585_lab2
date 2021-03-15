@@ -21,6 +21,11 @@
 	function generateTable() {
 		document.getElementById("form").hidden = true;
 		var rows = document.getElementById("t1").value;
+		if( rows == "")
+		{
+			alert( rows);
+			return;
+		}
 		totalrows = rows;
 		var columns = document.getElementById("t2").value;
 		totalcols = columns;
@@ -46,13 +51,21 @@
 	var totalcols = 0;
 
 	function addColumn() {
+		
+		if(totalcols ==NaN)
+		{
+			totalcols = 1;
+			totalrows=1;
+		}
+	
+
 		totalcols = parseInt(totalcols) + 1;
 		var rows = totalrows;
 
 		var columns = totalcols;
 
 		var table = document.createElement("table");
-
+		
 		for (var i = 0; i <= rows - 1; i++) {
 			var row = document.createElement("tr");
 			row.style.border = "1px solid";
@@ -71,6 +84,12 @@
 
 
 	function addRow() {
+		if(totalrows ==NaN)
+		{
+			totalcols = 1;
+			totalrows = 1;
+		}
+		
 		totalrows = parseInt(totalrows) + 1;
 		var rows = totalrows;
 
@@ -79,6 +98,7 @@
 
 		var table = document.createElement("table");
 
+		
 		for (var i = 0; i <= rows - 1; i++) {
 			var row = document.createElement("tr");
 			row.style.border = "1px solid";
