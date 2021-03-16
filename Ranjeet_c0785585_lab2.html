@@ -1,3 +1,4 @@
+
 <html>
 <div id="form">
 	<font size="8" color="green">Final test lab</font><br><br>
@@ -48,9 +49,9 @@
 
 	function addColumn() {
 		
-		if(totalcols ==NaN)
+		if(totalcols ==NaN || totalcols == '')
 		{
-			totalcols = 1;
+			totalcols = 0;
 			totalrows=1;
 		}
 	
@@ -80,10 +81,11 @@
 
 
 	function addRow() {
-		if(totalrows ==NaN)
+        
+		if(totalrows == NaN || totalrows == '')
 		{
 			totalcols = 1;
-			totalrows = 1;
+			totalrows = 0;
 		}
 		
 		totalrows = parseInt(totalrows) + 1;
